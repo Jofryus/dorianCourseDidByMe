@@ -18,6 +18,7 @@ const edad = document.getElementById('edad');
 let nombre1 = prompt('introduce tu nombre');
 let edad1 = prompt('introduce tu edad');
 // console.log(nombre, edad);           //control
+// let nedad = parseInt(edad1)+1;
 let nedad = Number(edad1)+1;
 // console.log(nedad)                   //control
 nombre.textContent = (`${nombre1}`)
