@@ -8,8 +8,8 @@ x - Validar que los campos no se introduzcan vacíos
 x - Validar que el año sea un número y que tenga 4 dígitos
 x - Validar que el género sea: aventuras, terror o fantasía
 X - Crea una función que muestre todos los libros
-Crea una función que muestre los autores ordenados alfabéticamente
-Crea una función que pida un género y muestre la información de los libros que pertenezcan a ese género usando un el método que devuelve la información */
+X - Crea una función que muestre los autores ordenados alfabéticamente
+X - Crea una función que pida un género y muestre la información de los libros que pertenezcan a ese género usando un el método que devuelve la información */
 
 class Book {
     constructor(titulo, autor, fecha, genero){
@@ -70,16 +70,17 @@ function createBook (){
     genero = enterGender('introduce el genero (aventuras, terror, fantasía):');
 
     return new Book(titulo, autor, fecha, genero);
-//    console.log(libro);
-}
+    //    console.log(libro);
+};
 
+function createBookList(){
+    let bookList = [];
+    for (i=0; i<3; i++){
+        bookList[i] = createBook();
 
-/* let newBook = createBook()
-console.log(newBook.infoLibro()) */
+    };
+    return bookList;
 
-
-for (i=0; i<3; i++){
-    bookList[i] = createBook();
 }
 
 // console.log(bookList);
@@ -88,16 +89,40 @@ function mostrarLibros (bookList){
     for (book of bookList){
         console.log(book.infoLibro());
     }
-}
+};
 
-mostrarLibros(bookList);
-
-function getAthors(bookList){
+function ordenedAuthorsList(bookList){
     let authorList = [];
-    for (book in bookList){
+
+    for (book of bookList){
         authorList.push(book.autor)
-        console.log(book.autor) 
+//        console.log(book.autor) 
     }
-    return (authorList)
+    console.log(authorList.sort())
 }
-console.log(getAthors())
+
+function getForGender(bookList){
+    let genderList = [];
+    gender = prompt('Introduce el genero: ')
+    for (book of bookList){
+        if (book.genero == gender){
+            genderList.push(book);
+        }
+    }
+    for (book of genderList){
+        console.log(book.infoLibro(genderList));
+    }
+}
+
+
+
+let bookList1 = createBookList();
+ordenedAuthorsList(bookList1);
+// console.log(bookList1);
+
+/* let newBook = createBook()
+console.log(newBook.infoLibro()) */
+mostrarLibros(bookList1);
+
+getForGender(bookList1);
+
