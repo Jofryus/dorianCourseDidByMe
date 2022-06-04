@@ -1,51 +1,53 @@
-// https://www.youtube.com/watch?v=CEsW5ws700k&list=PLROIqh_5RZeBAnmi0rqLkyZIAVmT5lZxG&index=11
-// Array
-//      
+// https://www.youtube.com/watch?v=5tKPYrtHHEk&list=PLROIqh_5RZeBAnmi0rqLkyZIAVmT5lZxG&index=23
 
-let array1 = [1,2,3,4,5]
+// spread Operator ( operador de expansion)  ...
 
-const numbers = document.getElementById('numbers');
-const result = document.getElementById('result');
+const numbers = [-12, 2, 3, 23, 43, 2, 3];
+console.log(numbers);
+console.log(...numbers);
 
-numbers.textContent = (`let array1 = [1,2,3,4,5]`)
-result.textContent = (`nuestro array es: nums = ${array1} `)
+console.log('------- ejemplo 1 ---------');
+// ejemplo 1 -- enviar elemento de un array a una función
+const nums = [1,2,3]
+const addNumbers = ((a, b, c) => {
+    console.log(a+b+c);
+})
+addNumbers(1,2,3);          // numeros enviados pos separado
+addNumbers(...nums)         // numeros enviados en un array
+addNumbers(...numbers)         // numeros enviados en un array mas largo, coge los 3 primeros porque asi es la funcion
 
+console.log('------- ejemplo 2 ---------');
+// ejemplo 2 -- añadir un array a otro array
+let users1 = ['marta', 'jaime', 'laura'];
+let users2 = ['javier', 'david', 'rosa', 'juan', 'mercedes']
+users1.push(...users2);
+console.log(users1);
 
-/*     Propiedad
+console.log('------- ejemplo 3 ---------');
+// ejemplo 3 -- copiar arrays
+numbersNew = [...numbers]
+console.log(numbersNew);
 
-    array1.lenght        devuelve el numero de objetos del array
- */
+console.log('------- ejemplo 4 ---------');
+// ejemplo 4 -- concatenar arrays
+array1 = [1, 2, 3];
+array2 = [5, 7, 9];
+let arrayConcat = [...array1, ...array2];
+console.log(arrayConcat);
 
-/*     Métodos
+console.log('------- ejemplo 5 ---------');
+// ejemplo 5 -- enviar a una funcion un numero de parametros indefinido(parametros REST)
+const restParams = (...numbers) => {
+    console.log(numbers);
+    console.log(...numbers);
+}
+restParams(1,2,3,4,5,6,7)
 
-    array1.isArray      devuelve true si la variable es un array
- */
-/*  array1     -----    Eliminar elementos
-          .shift()  -   Elimina el primer elemento del array y devuelve ese elemento
-          .pop      -   Elimina el ultimo elemento i devuelve ese elemento
- */
-/*  array1     -----    Añadir elementos
-          .push(ele1, ele2, ele3, ...)  -   Añade 1 o mas elementos al final del array
-          .unshift(ele1, ele2, ele3, ...)  -  añade 1 o mas elementos al inicio del array
- */
-/*  array1     -----    Añadir elementos
-          .indexOf(valor)  -   devuelve el inice del primer elemento del array que coincida con el valor o -1 si no encuentra nada
- */
-/*  array1     -----    Añadir elementos
-          .lasrIndexOf(valor)  -   devuelve el inice del ultimo elemento del array que coincida con el valor o -1 si no encuentra nada
- */
-/*  array1     -----    Añadir elementos
-          .reverse()  -   invierte el orden de los elementos del array
- */
-/*  array1     -----    Añadir elementos
-          .join('separador')  -   devuelve un string que separa los elementos con el separador, por defecto coma
- */
-/*  array1     -----    Añadir elementos
-          .splice(a,b,item)  -   modifica el contenido de un array cambiando unos elementos por otros
-          a - indice inicio para eliminar
-          b - numero de elementos a eliminar (opcional)
-          item - elementos añadidos (opcional)     
- */
-/*  array1     -----    Añadir elementos
-          .slice(a,b)  -   extrae los elementos de un array desde el indice a al indice b
- */
+console.log('------- ejemplo 6 ---------');
+// ejemplo 6 -- trabajar con Math, ahora ya pldemos trabajar con arrays
+
+console.log(Math.max(...numbers));
+
+console.log('------- ejemplo 7 ---------');
+// ejemplo 6 -- eliminar dublicados
+console.log([...new Set(numbers)]) // set elimina los objetos duplicados de un array.
