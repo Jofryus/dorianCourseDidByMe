@@ -7,11 +7,11 @@ Atributos
     element.setAttribute('attribute', value)
 
 Clases
-    element.classList.add('class', 'class', ...)
-    element.classList.remove('class', 'class', ...)
-    element.classList.toggle('class', [force])
-    element.classList.contains('class')
-    element.classList.remplace('oldClass', 'newClass')
+    element.classList.add('class', 'class', ...)        -- añade classe
+    element.classList.remove('class', 'class', ...)     -- borra classe
+    element.classList.toggle('class', [force])          -- añade si no tiene, borra si la tiene
+    element.classList.contains('class')                 -- devuelve true o false si la ltiene o no
+    element.classList.remplace('oldClass', 'newClass')  -- canvia una classe por otra
 
 atributos directos
 
